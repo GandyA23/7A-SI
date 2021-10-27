@@ -38,10 +38,10 @@ if crypto.allItsFine() :
 
     print('Escriba salir para finalizar comunicación.')
     while True:
-        mensaje = cliente_socket.recv(1024)
-        mensaje = mensaje.decode()
-        mensaje = crypto.decode(mensaje)
-        print(server_name," dice: ", mensaje)
+        mensajeCifrado = cliente_socket.recv(1024)
+        mensajeCifrado = mensajeCifrado.decode()
+        mensaje = crypto.decode(mensajeCifrado)
+        print(server_name," dice: ", mensajeCifrado, " > ", mensaje)
         mensaje = input(str("Yo: "))
         if mensaje == "salir":
             mensaje = "se desconectó."

@@ -51,9 +51,9 @@ if crypto.allItsFine() :
 
         connection.send(mensaje.encode())
 
-        mensaje = connection.recv(1024)
-        mensaje = mensaje.decode()
-        mensaje = crypto.decode(mensaje)
-        print(cliente, ' dice :', mensaje)
+        mensajeCifrado = connection.recv(1024)
+        mensajeCifrado = mensajeCifrado.decode()
+        mensaje = crypto.decode(mensajeCifrado)
+        print(cliente, ' dice :', mensajeCifrado, " > ", mensaje)
 else:
     print('Error en la configuración, lee los mensajes de error')
